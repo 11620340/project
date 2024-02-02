@@ -11,7 +11,7 @@ class main(QtWidgets.QWidget):
         # 初始化products
         self.model_products = model.model(self, 'products')
         self.tableView_products.setModel(self.model_products)
-        self.tableView_products.verticalHeader().setVisible(False)
+        # self.tableView_products.verticalHeader().setVisible(False)
         self.lineEdit_search.textChanged.connect(self.model_products.products_search)
 
         self.pushButton_inventory_refresh.clicked.connect(lambda :self.model_products.select())
@@ -36,7 +36,6 @@ class main(QtWidgets.QWidget):
         self.model_sales = model.model(self, 'sales')
         self.model_sales.sort(0, 1)
         self.tableView_sales.setModel(self.model_sales)
-        self.tableView_sales.verticalHeader().setVisible(False)
         self.tableView_sales.setColumnWidth(5, 500)
 
         self.pushButton_sales_commit.clicked.connect(self.model_sales.commit)
@@ -48,7 +47,6 @@ class main(QtWidgets.QWidget):
         self.model_purchase = model.model(self, 'purchase')
         self.model_purchase.sort(0, 1)
         self.tableView_purchase.setModel(self.model_purchase)
-        self.tableView_purchase.verticalHeader().setVisible(False)
         self.tableView_purchase.setColumnWidth(3, 500)
 
         self.pushButton_pur_refresh.clicked.connect(lambda :self.model_purchase.select())
